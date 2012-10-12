@@ -29,11 +29,16 @@ USE_CAMERA_STUB := true
 -include device/samsung/msm8660-common/BoardConfigCommon.mk
 
 # Kernel
-BOARD_KERNEL_CMDLINE        := androidboot.hardware=qcom usb_id_pin_rework=true
+BOARD_KERNEL_CMDLINE        := androidboot.hardware=qcom usb_id_pin_rework=true zcache
 BOARD_KERNEL_BASE           := 0x48000000
 BOARD_FORCE_RAMDISK_ADDRESS := 0x49400000
 BOARD_KERNEL_PAGESIZE       := 2048
 
+BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
+BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk0p28
+BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2
+BOARD_USES_MMCUTILS := true
+BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 

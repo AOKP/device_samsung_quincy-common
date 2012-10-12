@@ -29,6 +29,10 @@ DEVICE_PACKAGE_OVERLAYS += device/samsung/quincy-common/overlay
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
+# Hardware
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml 
+
 # Ramdisk
 PRODUCT_COPY_FILES += \
     device/samsung/quincy-common/ramdisk/init.qcom.rc:root/init.qcom.rc \
@@ -37,8 +41,8 @@ PRODUCT_COPY_FILES += \
     device/samsung/quincy-common/ramdisk/init.target.rc:root/init.target.rc \
     device/samsung/quincy-common/ramdisk/initlogo.rle:root/initlogo.rle \
     device/samsung/quincy-common/ramdisk/ueventd.rc:root/ueventd.rc \
-    device/samsung/quincy-common/ramdisk/init.emmc.rc:root/init.emmc.rc \
-    device/samsung/quincy-common/fstab.qcom:root/fstab.qcom
+	device/samsung/quincy-common/ramdisk/init.emmc.rc:root/init.emmc.rc \
+	device/samsung/quincy-common/ramdisk/fstab.qcom:root/fstab.qcom \
 
 # BT firmware
 PRODUCT_COPY_FILES += \
@@ -52,6 +56,9 @@ PRODUCT_COPY_FILES += \
 # Vold configuration
 PRODUCT_COPY_FILES += \
     device/samsung/quincy-common/vold.fstab:system/etc/vold.fstab
+
+# QRNGD
+PRODUCT_PACKAGES += qrngd
 
 # common msm8660
 $(call inherit-product, device/samsung/msm8660-common/msm8660.mk)
